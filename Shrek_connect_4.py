@@ -89,11 +89,17 @@ def main_menu():
 
         screen.fill((0, 190, 100))
         screen.blit(real_swampImg, (0, 0))
+        draw_text("SHREK'S CONNECT 4", title_font, (0,0,0), screen, 105, 30)
         draw_text("SHREK'S CONNECT 4", title_font, (50, 200, 90), screen, 110, 30)
+        draw_text("by Nikash", title_font, (0, 0, 0), screen, 300, 415)
+        draw_text("by Nikash", title_font, (200, 0, 112), screen, 300, 420)
+
         mx, my = pygame.mouse.get_pos()
 
         button_1 = pygame.Rect(330, 167, 260, 60)
         button_2 = pygame.Rect(330, 310, 260, 60)
+        rect1 = pygame.Rect(335, 167, 260, 60)
+        rect2 = pygame.Rect(335, 310, 260, 60)
 
         if button_1.collidepoint((mx, my)):
             # If the player clicks this button, button_1, game starts
@@ -289,7 +295,7 @@ def main_menu():
                 while real_input == True:
                 # single or two player?
 
-                    ComputerPlay = input('Single Player (Swamp/Fiona Duel) or Two Player (Friendly Shrek vs. Donkey Brawl? S/T')
+                    ComputerPlay = input('Single Player (Swamp/Fiona Duel) or Two Player (Friendly Shrek vs. Donkey Brawl)? S/T')
                     two_player = ComputerPlay.upper() == "T"
                     ComputerPlay = ComputerPlay.upper() == "S"
 
@@ -353,7 +359,6 @@ def main_menu():
                             posx = event.pos[0]
                             col = int(posx / SQUARE_SIZE)
                             if col > 6:
-
                                 continue
                             # calling functions for when moves are made--if it's a valid location
                             if is_valid_location(board, col):
@@ -499,23 +504,6 @@ mainClock.tick(60)
 
 
 main_menu()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
